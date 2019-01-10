@@ -3,6 +3,7 @@
 <p>
   <strong>Name:</strong>
   <%= @account.name %>
+  <%= @account.users.last.email %>
 </p>
 
 <%= link_to 'Edit', edit_account_path(@account) %> |

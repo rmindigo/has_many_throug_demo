@@ -17,7 +17,7 @@
   </div>
 
   <div class="field">
-    <%= form.fields_for :user do |f| %>
+    <%= form.fields_for :users do |f| %>
           <div class="field">
             <%= f.label :email %><br />
             <%= f.email_field :email, autofocus: true, autocomplete: "email" %>

@@ -7,6 +7,7 @@ class AccountsController < ApplicationController
   # GET /accounts.json
   def index
     @accounts = Account.all
+
   end
 
   # GET /accounts/1
@@ -17,7 +18,7 @@ class AccountsController < ApplicationController
   # GET /accounts/new
   def new
     @account = Account.new
-   
+    @account.users.build
   end
 
   # GET /accounts/1/edit
@@ -73,6 +74,6 @@ class AccountsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
-      params.require(:account).permit(:name, users_attributes: [:email, :password, :password_confirmation])
+      params.require(:account).permit(:name, { users_attributes: [:id, :email, :password, :password_confirmation] } )
     end
 end
