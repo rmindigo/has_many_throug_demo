@@ -4,4 +4,6 @@ class RegistrationsController < Devise::RegistrationsController
 	    accounts_path(resource) 
 	end
 
+	
+
 end

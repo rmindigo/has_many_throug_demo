@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+<h5>Welcome: <%= current_user.email %></h5>
+<% if user_signed_in? %>
+<h5><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></h5>
+<% end %>
+
 <h1>Accounts</h1>
 
 <table>
@@ -17,10 +22,24 @@
         <td><%= link_to 'Show', account %></td>
         <td><%= link_to 'Edit', edit_account_path(account) %></td>
         <td><%= link_to 'Destroy', account, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to "Join", account_memberships_path(account), method: :post %> </td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+  <% if user_signed_in? %>
+  <h5>Your Accounts</h5>
+  <ul>
+    <% current_user.accounts.each do |hey| %>
+    <li><%= hey.name %></li>
+    <% end %>
+  <% end %>  
+
+  </ul>
+
+    
+
 
 <br>
 
